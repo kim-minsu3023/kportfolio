@@ -1,0 +1,476 @@
+:root {
+  --main-color: #1a73e8;
+  --bg-light: #f0f4f8;
+  --text-dark: #333;
+}
+
+/* 공통 */
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  margin: 0;
+  padding-top: 70px;
+}
+
+/* 네비게이션 */
+#nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#nav ul li { margin: 0 1em; }
+#nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--text-dark);
+  transition: color 0.3s;
+}
+#nav ul li a.active { color: var(--main-color); }
+
+/* section 공통 */
+section {
+  padding: 100px 20px;
+  min-height: 100vh;
+}
+
+/* 1페이지: HOME */
+#home {
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../../images/banner.jpg') center/cover no-repeat;
+}
+.home-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(60,100,180,0.07);
+  padding: 48px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+  max-width: 760px;
+}
+.home-content {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+}
+.home-text { text-align: left; }
+#typing-text {
+  font-size: 2.5em;
+  color: var(--main-color);
+  font-weight: bold;
+  min-height: 1.3em;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+#typing-text::after {
+  content: "|";
+  animation: blink 1s infinite steps(1);
+  color: #1a73e8;
+}
+@keyframes blink { 50% { opacity: 0; } }
+.major {
+  font-size: 1.17em;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+.subtitle {
+  color: #666;
+  margin-top: 8px;
+  font-size: 1.03em;
+  font-weight: 400;
+}
+.home-profile-img {
+  width: 165px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 50% 50% 50% 50%/55% 55% 45% 45%;
+  background: #e6eefb;
+  box-shadow: 0 2px 18px rgba(60,100,180,0.07);
+  border: 6px solid #f7fafd;
+  display: block;
+}
+@media (max-width: 700px) {
+  .home-card {
+    padding: 24px 5vw;
+    min-width: unset;
+    max-width: 99vw;
+  }
+  .home-content {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .home-profile-img {
+    width: 110px;
+    height: 120px;
+  }
+  .home-text { text-align: center; }
+}
+
+/* 2페이지: ABOUT */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('images/spotlight02.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+.about-card {
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.11);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 48px 40px;
+  gap: 48px;
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+}
+.about-left {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-img {
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50% 50% 50% 50%/55% 55% 45% 45%;
+  border: 7px solid #f8fafd;
+  box-shadow: 0 3px 24px rgba(0,0,0,0.07);
+  background: #fff;
+}
+.about-right { flex: 1; }
+.about-right h2 {
+  font-size: 2.6em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  color: #222;
+}
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-list li {
+  font-size: 1.2em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+.about-list i {
+  margin-right: 12px;
+  font-size: 1.1em;
+  color: #1a73e8;
+}
+.about-list a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
+}
+.about-detail {
+  max-width: 980px;
+  margin: 42px auto 0;
+  font-size: 1.5em;
+  color: #222;
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 30px 22px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+}
+@media (max-width: 850px) {
+  .about-card {
+    flex-direction: column;
+    padding: 36px 14px;
+    gap: 28px;
+    max-width: 99vw;
+  }
+  .about-left .profile-img {
+    width: 180px;
+    height: 220px;
+  }
+  .about-detail {
+    padding: 18px 7vw;
+  }
+}
+
+/* 3페이지: PROJECTS */
+.project-card {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 3px 18px rgba(60,100,180,0.06);
+  padding: 28px 28px;
+  margin: 0 0 0 0;
+  max-width: 1200px;
+  width: 100%;
+}
+.project-card img {
+  max-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(60,100,180,0.08);
+  background: #f8fafc;
+  padding: 6px;
+}
+@media (max-width: 650px) {
+  .project-card {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 14px 8vw;
+  }
+  .project-card img { max-width: 90vw; }
+}
+
+/* 4~5페이지 SKILLS/CONTACT 등 */
+#skills, .align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#skills h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 32px;
+  font-size: 2.6em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.skills-bar {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+.skill {
+  margin: 10px 0;
+}
+.skill-name {
+  font-weight: bold;
+  font-size: 1.4em;
+  text-align: left;
+  margin-bottom: 4px;
+  margin-left: 2px;
+}
+.skill-bar {
+  background: #ddd;
+  height: 10px;
+  position: relative;
+  border-radius: 5px;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: var(--main-color);
+  border-radius: 5px;
+}
+
+/* 기타 */
+.onscroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.onscroll-fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+.content-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.content-flex img {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.content-flex .text {
+  max-width: 600px;
+}
+
+/* ---- CONTACT SECTION ---- */
+.contact-section {
+  width: 100%;
+  padding: 64px 0 72px 0;
+  background: transparent;
+}
+
+.contact-desc {
+  text-align: center;
+  font-size: 1.17em;
+  color: #444;
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.contact-box {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1040px;
+  margin: 0 auto;
+  background: none;
+}
+
+.contact-form, .contact-info {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(60,100,180,0.06);
+  padding: 36px 28px 32px 28px;
+  flex: 1;
+  min-width: 310px;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form label {
+  font-weight: 600;
+  font-size: 1.08em;
+  margin-bottom: 6px;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  padding: 10px 13px;
+  border: 1.8px solid #dadcff;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border 0.2s;
+  outline: none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 2px solid #5953dd;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.contact-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 0.98em;
+  color: #444;
+}
+
+.contact-form button {
+  margin-top: 8px;
+  background: #5953dd;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.14em;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 0;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.contact-form button:hover {
+  background: #3b2ecc;
+}
+
+/* ---- 오른쪽 연락처 정보 ---- */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 230px;
+  background: #fff;
+}
+.contact-info h3 {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.info-icon {
+  width: 48px; height: 48px;
+  background: #e4e6fb;
+  color: #5953dd;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  font-size: 1.6em;
+}
+.contact-info a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .contact-box { flex-direction: column; gap: 24px; }
+  .contact-form, .contact-info { max-width: 99vw; }
+}
+.project-card .project-info {
+  min-width: 200px;
+  max-width: 300px;
+  word-break: keep-all;
+}
+
+@media (max-width: 900px) {
+  .project-card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 14px;
+    padding: 18px 5vw;
+  }
+  .project-card .project-info {
+    text-align: center;
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+}
